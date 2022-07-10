@@ -1,0 +1,14 @@
+[
+  {
+    "id": "KhWderlVHWk4u0mb0qqCm",
+    "email": "Marcos@mail.com",
+    "password": "12345678",
+    "role": "ADMIN"
+  },
+  {
+    "id": "O_i9N78MuqOC34u7LEG1O",
+    "email": "mkw@gmail.com",
+    "password": "password",
+    "role": "ADMIN"
+  }
+]

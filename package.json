@@ -8,20 +8,29 @@
   },
   "scripts": {
     "test": "npm run build:ts && tsc -p test/tsconfig.json && tap --ts test/**/*.test.ts",
-    "start": "npm run build:ts && fastify start -l info dist/app.js",
+    "start2": "npm run build:ts && fastify start -l info dist/app.js",
+    "start-cli": "node dist/src/server.js",
     "build:ts": "tsc",
     "watch:ts": "tsc -w",
-    "dev": "npm run build:ts && concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\" \"npm:watch:ts\" \"npm:dev:start\"",
-    "dev:start": "fastify start --ignore-watch=.ts$ -w -l info -P dist/app.js"
+    "dev-cli": "npm run build:ts && concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\" \"npm:watch:ts\" \"npm:dev:start\"",
+    "dev:start": "fastify start --ignore-watch=.ts$ -w -l info -P dist/app.js",
+
+    "start": "node dist/src/server.js",
+    "dev": "NODE_ENV=development ts-node-dev src/server.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@fastify/autoload": "^4.0.0",
+    "@fastify/cors": "^8.0.0",
+    "@fastify/jwt": "5.0.0",
     "@fastify/sensible": "^4.0.0",
+    "@fastify/swagger": "^7.4.1",
+    "@sinclair/typebox": "^0.24.7",
     "crossword-layout-generator": "^0.1.1",
-    "fastify": "^3.0.0",
+    "fakebase": "0.3.0",
+    "fastify": "^4.2.0",
     "fastify-cli": "^3.1.0",
     "fastify-plugin": "^3.0.0"
   },
