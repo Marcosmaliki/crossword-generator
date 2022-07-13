@@ -14,8 +14,7 @@
     "watch:ts": "tsc -w",
     "dev-cli": "npm run build:ts && concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\" \"npm:watch:ts\" \"npm:dev:start\"",
     "dev:start": "fastify start --ignore-watch=.ts$ -w -l info -P dist/app.js",
-
-    "start": "node dist/src/server.js",
+    "start": "node dist/server.js",
     "dev": "NODE_ENV=development ts-node-dev src/server.ts"
   },
   "keywords": [],
@@ -32,7 +31,8 @@
     "fakebase": "0.3.0",
     "fastify": "^4.2.0",
     "fastify-cli": "^3.1.0",
-    "fastify-plugin": "^3.0.0"
+    "fastify-plugin": "^3.0.0",
+    "pino-pretty": "^8.1.0"
   },
   "devDependencies": {
     "@types/node": "^17.0.8",

@@ -8,7 +8,6 @@ services:
             - crossword-server_network
         volumes:
             - ./uploads:/app/uploads
-            - ./reports:/app/reports
             - ./logs:/app/logs
         ports:
             - '3000:3000'
