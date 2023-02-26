@@ -17,6 +17,20 @@ export async function generateCrosswordHandler(
   const inputJson = req.body.input;
   const level = req.body.level;
 
+  if(inputJson.length < 5){
+    return {
+      success: false,
+      message:'Please add atleast 5 clues to generate'
+    }
+  }
+
+  if(inputJson.length > 20){
+    return {
+      success: false,
+      message:'Puzzle too big, please shrink the clues down to utmost 20'
+    }
+  }
+
   const layout = clg.generateLayout(inputJson);
   const rows = layout.rows;
   const cols = layout.cols;

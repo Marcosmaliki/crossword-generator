@@ -1,13 +1,14 @@
 version: '3'
 services:
-    easy-agro-server:
-        image: marcosmaliki/crossword
+    crossword-server:
+        image: marcosmaliki/crosswordserver
         container_name: crossword
         restart: unless-stopped
         networks:
             - crossword-server_network
         volumes:
             - ./uploads:/app/uploads
+            - ./data:/app/data
             - ./logs:/app/logs
         ports:
             - '3000:3000'

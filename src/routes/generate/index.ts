@@ -29,7 +29,7 @@ const generate: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
   });
       
 
-  fastify.post("/nada", {
+  fastify.get("/nada", {
      schema:{
       
      }
@@ -37,20 +37,96 @@ const generate: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
   async function (request, reply) {
     //TODO: this will be a get request - will need the Q&A json and will return the crossword builder and the level of difficulty
 
+   
+
+
     const inputJson = [
       {
-        clue: "that which is established as a rule or model by authority, custom, or general consent",
-        answer: "standard",
-      },
-      { clue: "a machine that computes", answer: "computer" },
+        clue: "Came across a record concerning journalist (10)",
+        answer: "discover"},
       {
-        clue: "the collective designation of items for a particular purpose",
-        answer: "equipment",
+        clue: "Language of old city belonging to the French (4)",
+        answer: "urdu"
+      }, {
+        clue: "They'll get wrongly blamed for heading off escape by animals (10)",
+        answer: "scapegoats"
+      }, {
+        clue: "There's potato in Mum's pudding (4)",
+        answer: "spud"
+      }, {
+        clue: "Style of cooking providing contrasts (5-3-4)",
+        answer: "sweetandsour"
+      }, {
+        clue: "Country-loving Irishman in charge of containing disturbance (9)",
+        answer: "patriot"
+      }, {
+        clue: "Giving note to terrorists makes one angry (5)",
+        answer: "irate"
+      }, {
+        clue: "One who latches on to another is a sucker (5)",
+        answer: "LEECH"
+      }, {
+        clue: " Sailor's intent perhaps is to be self-restrained (9)",
+        answer: "abstinent"
       },
-      { clue: "an opening or entrance to an inclosed place", answer: "port" },
       {
-        clue: "a point where two things can connect and interact",
-        answer: "interface",
+        clue:'A comment sure upset in due proportion (12)',
+        answer:'commensurate'
+      }, {
+        clue:'Man told to get on his knees? (4)',
+        answer:'neil'
+      }, {
+        clue:'Boundary rope may produce such a decision (10)',
+        answer:'borderline'
+      }, {
+        clue:'E.g. dogs returning from walk (4)',
+        answer:'steps'
+      }, {
+        clue:'Not quite one\'s best friend on the ship (6,4)',
+        answer:'secondmate'
+      },
+      //down
+      {
+        clue: "Pretty girl gets some food (4)",
+        answer: "dish"
+      }, {
+        clue: "Animal found in sea location (4)",
+        answer: "seal"
+      }, {
+        clue: "Fat little Edward is biased (12)",
+        answer: "OVERWEIGHTED"
+      },
+      {
+        clue: "The First Lady touring Oklahoma will awaken memories (5)",
+        answer: "evoke"
+      },{
+        clue: "The thresholds of delights (9)",
+        answer: "ENTRANCES"
+      },
+      {
+        clue:' Below, below, below (10)',
+        answer:'underneath'
+      }, {
+        clue:' Managed to get clergyman in dead awkward situation (12)',
+        answer:'administered'
+      }, {
+        clue:' They are seeking work after demolition of aspic plant (10)',
+        answer:'applicants'
+      }, {
+        clue:'Steam railway takes on head of Railtrack to improve efficiency (10)',
+        answer:'streamline'
+      }, {
+        clue:'To perform in a different key, one\'s parts must be arranged (9)',
+        answer:'transpose'
+      }, {
+        clue:'Went on horseback round cowboy show (5)',
+        answer:'rodeo'
+      }, {
+        clue:' Junk mail from the capital (4)',
+        answer:'lima'
+      }, {
+        clue:' Nothing but a lake (4)',
+        answer:'mere'
       },
     ];
 
@@ -58,12 +134,12 @@ const generate: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
     const rows = layout.rows;
     const cols = layout.cols;
     const table = layout.table; // table as two-dimensional array
-    // const outputHtml = layout.table_string; // table as plain text (with HTML line breaks)
+    const outputHtml = layout.table_string; // table as plain text (with HTML line breaks)
     const outputJson: Array<output> = layout.result; // words along with orientation, position, startx, and starty
     // console.log(rows);
     // console.log(cols);
     // console.log(table);
-    // console.log(outputHtml);
+    console.log(outputHtml);
 
     /**
      * 1.
