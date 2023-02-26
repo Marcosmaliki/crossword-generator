@@ -1,6 +1,7 @@
 import { FastifyPluginAsync } from "fastify";
+import { crosswordId } from "./crossword.schema";
 
-import { getCrosswordsHandler } from "./crosswords.controller";
+import { deleteCrosswordsHandler, getCrosswordsHandler } from "./crosswords.controller";
 
 const crosswords: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
   //* get crosswords
@@ -10,6 +11,17 @@ const crosswords: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
       tags: ["Crosswords"],
     },
     handler: getCrosswordsHandler,
+  });
+
+   //! delete crossword
+   fastify.delete("/delete/:id", {
+    // preValidation: fastify.authenticate,
+    schema: {
+      tags: ["Crosswords"],
+      params: crosswordId
+    },
+  
+    handler: deleteCrosswordsHandler,
   });
 };
 
